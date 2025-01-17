@@ -8,7 +8,7 @@ component "s3" {
 
   inputs = {
     region = each.value
-    env = var.env
+    environment = var.env
   }
 
   providers = {
