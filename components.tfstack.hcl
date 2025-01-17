@@ -59,6 +59,7 @@ removed {
     from = component.s3_buckets[each.value]
     providers = {
         aws = provider.aws.config[each.value]
+        random = provider.random.this
     }
 }
 
@@ -70,6 +71,9 @@ removed {
     from = component.lambda[each.value]
     providers = {
         aws = provider.aws.config[each.value]
+        archive = provider.archive.this
+        local   = provider.local.this
+        random  = provider.random.this
     }
 }
 
@@ -80,5 +84,6 @@ removed {
     from = component.api_gateway[each.value]
     providers = {
         aws = provider.aws.config[each.value]
+        random  = provider.random.this
     }
 }
