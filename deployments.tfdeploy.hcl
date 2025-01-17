@@ -17,7 +17,7 @@ deployment "development" {
 
 deployment "test" {
   inputs = {
-    regions     = ["us-east-1"]
+    regions     = ["us-east-1", "us-west-1"]
     env            = "stg"
     role_arn       = "arn:aws:iam::311141549070:role/stacks-n214-TF-stacks"
     identity_token = identity_token.aws.jwt
@@ -27,7 +27,7 @@ deployment "test" {
 
 deployment "production" {
   inputs = {
-    regions        = ["us-east-1"]
+    regions        = ["us-east-1", "us-west-1"]
     env            = "prod"
     role_arn       = "arn:aws:iam::311141549070:role/stacks-n214-TF-stacks"
     identity_token = identity_token.aws.jwt
