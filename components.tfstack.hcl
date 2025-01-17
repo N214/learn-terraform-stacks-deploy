@@ -64,26 +64,26 @@ removed {
 }
 
 
-removed {
-    source = "./lambda"
-    for_each = var.removed_regions
-
-    from = component.lambda[each.value]
-    providers = {
-        aws     = provider.aws.configurations[each.value]
-        archive = provider.archive.this
-        local   = provider.local.this
-        random  = provider.random.this
-    }
-}
-
-removed {
-    source = "./api-gateway"
-    for_each = var.removed_regions
-
-    from = component.api_gateway[each.value]
-    providers = {
-        aws     = provider.aws.configurations[each.value]
-        random  = provider.random.this
-    }
-}
+#removed {
+#    source = "./lambda"
+#    for_each = var.removed_regions
+#
+#    from = component.lambda[each.value]
+#    providers = {
+#        aws     = provider.aws.configurations[each.value]
+#        archive = provider.archive.this
+#        local   = provider.local.this
+#        random  = provider.random.this
+#    }
+#}
+#
+#removed {
+#    source = "./api-gateway"
+#    for_each = var.removed_regions
+#
+#    from = component.api_gateway[each.value]
+#    providers = {
+#        aws     = provider.aws.configurations[each.value]
+#        random  = provider.random.this
+#    }
+#}
