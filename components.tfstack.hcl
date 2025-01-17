@@ -51,3 +51,34 @@ component "api_gateway" {
     random = provider.random.this
   }
 }
+
+removed {
+    source = "./s3"
+    for_each = var.removed_regions
+
+    from = component.s3_buckets[each.value]
+    providers = {
+        aws = provider.aws.config[each.value]
+    }
+}
+
+
+removed {
+    source = "./lambda"
+    for_each = var.removed_regions
+
+    from = component.lambda[each.value]
+    providers = {
+        aws = provider.aws.config[each.value]
+    }
+}
+
+removed {
+    source = "./api-gateway"
+    for_each = var.removed_regions
+
+    from = component.api_gateway[each.value]
+    providers = {
+        aws = provider.aws.config[each.value]
+    }
+}

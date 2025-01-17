@@ -23,3 +23,7 @@ variable "default_tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "removed_regions" {
+    type = set(string)
+}
