@@ -14,6 +14,15 @@ deployment "development" {
   }
 }
 
+deployment "test" {
+  inputs = {
+    regions     = ["us-east-1", "us-west-1"]
+    role_arn       = "arn:aws:iam::311141549070:role/stacks-n214-TF-stacks"
+    identity_token = identity_token.aws.jwt
+    default_tags   = { stacks-preview-example = "lambda-component-expansion-stack" }
+  }
+}
+
 deployment "production" {
   inputs = {
     regions        = ["us-east-1", "us-west-1"]
