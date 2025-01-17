@@ -1,8 +1,13 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
+resource "random_pet" "lambda_bucket_name" {
+  prefix = "hello"
+  length = 2
+}
+
 resource "aws_s3_bucket" "lambda_bucket" {
-  bucket = "s3-${var.environment}"
+  bucket = "s3-${var.environment}-${random_pet.lambda_bucket_name.id}"
 }
 
 resource "aws_s3_bucket_ownership_controls" "bucket_controls" {
