@@ -5,6 +5,10 @@ variable "regions" {
   type = set(string)
 }
 
+variable "env" {
+  type = string
+}
+
 variable "identity_token" {
   type      = string
   ephemeral = true
